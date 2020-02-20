@@ -1,0 +1,129 @@
+---
+title: "01 - Reading in Data"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+# Structure
+I am reading in the data for the United States and Mexico from Box file.
+
+## Libraries
+Bringing in the same libraries used in lapop-dashboard repo.
+```{r}
+library(labelled)
+library(sjmisc)
+library(tidyverse)
+library(assertr)
+library(haven)
+library(varhandle)
+```
+
+## Creating factored and unfactored dataframes
+```{r}
+factor_country <- function(country){
+  #Reads file for the country
+  country <- read_dta(country)
+  #Factors all the columns
+  country <- as_factor(country)
+  
+  #Starts list x
+  x <- 1
+  
+  #Changes name of column to add "factor"
+  while(x <= length(country)){
+      colnames(country)[x] <- paste(colnames(country)[x], "factor", sep = "_")
+     x <- x + 1
+  }
+  country
+}
+```
+
+# Reading in merged country files
+I am using the **most recent** merged country file. Currently, there is no public file with 2016 and 2018 waves merged for Bolivia.
+```{r}
+usa_factor <- factor_country("data/merged_bolivia_2004_2014.zip")
+usa_unfactor <- read_dta("data/merged_bolivia_2004_2014.zip")
+mexico_factor <- factor_country("data/merged_bolivia_2004_2014.zip")
+mexico_unfactor <- read_dta("data/merged_bolivia_2004_2014.zip")
+```
+
+## Reading in 2016 file
+Because there is no pre-existing merge that includes 2016 data, we are reading it in separately and then joining it later in the process.
+
+If you are using a file that has this wave included, you can skip this.
+
+### Creating factored data frame of 2016 questionnaire using `factor16_country`
+This is the 2016 version of the `factor_country()` used above. The same process applies, but we have renamed the `uniq_id` column to `person_id` for clarification.
+```{r}
+factor16_country <- function(country){
+  #Reads file for the country
+  country <- read_dta(country)
+  #Factors all the columns
+  country <- as_factor(country) %>% 
+    rename(person_id = uniq_id)
+  
+  #Starts list x
+  x <- 1
+  
+  #Changes name of column to add "factor"
+  while(x <= length(country)){
+      colnames(country)[x] <- paste(colnames(country)[x], "factor", sep = "_")
+     x <- x + 1
+  }
+  country
+}
+```
+
+### Bolivia 2016 File
+```{r}
+bolivia_16_factor  <- factor16_country("data/2016_bolivia.dta") %>% 
+  #Checking for uniqueness
+  assert(is_uniq, person_id_factor)
+
+bolivia_16_unfactor  <- read_dta("data/2016_bolivia.dta") %>% 
+  #Renaming ID column
+  rename(person_id = uniq_id) %>% 
+  #Checking for uniqueness
+  assert(is_uniq, person_id) %>% 
+  #Changing ID column to character class
+  transform(person_id = as.character(person_id))
+```
+
+## Creating factored data frame of questionnarie using `factor18_country()`
+This is similar to 2016 version above; the same process applies.
+```{r}
+factor18_country <- function(country){
+  #Reads file for the country
+  country <- read_dta(country)
+  #Factors all the columns
+  country <- as_factor(country) %>% 
+    rename(person_id = uniq_id)
+  
+  #Starts list x
+  x <- 1
+  
+  #Changes name of column to add "factor"
+  while(x <= length(country)){
+      colnames(country)[x] <- paste(colnames(country)[x], "factor", sep = "_")
+     x <- x + 1
+  }
+  country
+}
+```
+
+### Bolivia 2018 file
+```{r}
+bolivia_18_factor <- factor18_country("data/2018_bolivia.dta") %>% 
+  #Checking for uniqueness
+  assert(is_uniq, person_id_factor)
+
+bolivia_18_unfactor <- read_dta("data/2018_bolivia.dta") %>%
+  #Renaming ID column
+  rename(person_id = uniq_id) %>% 
+  #Checking for uniquness
+  assert(is_uniq, person_id) %>% 
+  #Changning ID column to character class
+  transform(person_id = as.character(person_id))
+```
+
