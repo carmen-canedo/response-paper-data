@@ -75,13 +75,28 @@ factor16_country <- function(country){
 }
 ```
 
-### Bolivia 2016 File
+### USA 2016 File
 ```{r}
-bolivia_16_factor  <- factor16_country("data/2016_bolivia.dta") %>% 
+usa_16_factor  <- factor16_country("data/2016_bolivia.dta") %>% 
   #Checking for uniqueness
   assert(is_uniq, person_id_factor)
 
-bolivia_16_unfactor  <- read_dta("data/2016_bolivia.dta") %>% 
+usa_16_unfactor  <- read_dta("data/2016_bolivia.dta") %>% 
+  #Renaming ID column
+  rename(person_id = uniq_id) %>% 
+  #Checking for uniqueness
+  assert(is_uniq, person_id) %>% 
+  #Changing ID column to character class
+  transform(person_id = as.character(person_id))
+```
+
+### Mexico 2016 File
+```{r}
+mexico_16_factor  <- factor16_country("data/2016_bolivia.dta") %>% 
+  #Checking for uniqueness
+  assert(is_uniq, person_id_factor)
+
+mexico_16_unfactor  <- read_dta("data/2016_bolivia.dta") %>% 
   #Renaming ID column
   rename(person_id = uniq_id) %>% 
   #Checking for uniqueness
@@ -112,13 +127,28 @@ factor18_country <- function(country){
 }
 ```
 
-### Bolivia 2018 file
+### USA 2018 file
 ```{r}
-bolivia_18_factor <- factor18_country("data/2018_bolivia.dta") %>% 
+usa_18_factor <- factor18_country("data/2018_bolivia.dta") %>% 
   #Checking for uniqueness
   assert(is_uniq, person_id_factor)
 
-bolivia_18_unfactor <- read_dta("data/2018_bolivia.dta") %>%
+usa_18_unfactor <- read_dta("data/2018_bolivia.dta") %>%
+  #Renaming ID column
+  rename(person_id = uniq_id) %>% 
+  #Checking for uniquness
+  assert(is_uniq, person_id) %>% 
+  #Changning ID column to character class
+  transform(person_id = as.character(person_id))
+```
+
+### Mexico 2018 file
+```{r}
+mexico_18_factor <- factor18_country("data/2018_bolivia.dta") %>% 
+  #Checking for uniqueness
+  assert(is_uniq, person_id_factor)
+
+mexico_18_unfactor <- read_dta("data/2018_bolivia.dta") %>%
   #Renaming ID column
   rename(person_id = uniq_id) %>% 
   #Checking for uniquness
