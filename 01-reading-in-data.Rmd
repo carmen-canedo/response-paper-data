@@ -10,7 +10,7 @@ I am reading in the data for the United States and Mexico from Box file.
 
 ## Libraries
 Bringing in the same libraries used in lapop-dashboard repo.
-```{r}
+```{r, message=FALSE}
 library(labelled)
 library(sjmisc)
 library(tidyverse)
@@ -42,10 +42,10 @@ factor_country <- function(country){
 # Reading in merged country files
 I am using the **most recent** merged country file. Currently, there is no public file with 2016 and 2018 waves merged for Bolivia.
 ```{r}
-usa_factor <- factor_country("data/merged_bolivia_2004_2014.zip")
-usa_unfactor <- read_dta("data/merged_bolivia_2004_2014.zip")
-mexico_factor <- factor_country("data/merged_bolivia_2004_2014.zip")
-mexico_unfactor <- read_dta("data/merged_bolivia_2004_2014.zip")
+usa_factor <- factor_country("data/merged_usa_2006_2017.dta")
+usa_unfactor <- read_dta("data/merged_usa_2006_2017.dta")
+mexico_factor <- factor_country("data/merged_mexico_2004_2014.zip")
+mexico_unfactor <- read_dta("data/merged_mexico_2004_2014.zip")
 ```
 
 ## Reading in 2016 file
@@ -92,11 +92,11 @@ usa_16_unfactor  <- read_dta("data/2016_bolivia.dta") %>%
 
 ### Mexico 2016 File
 ```{r}
-mexico_16_factor  <- factor16_country("data/2016_bolivia.dta") %>% 
+mexico_16_factor  <- factor16_country("data/2016_mexico.dta") %>% 
   #Checking for uniqueness
   assert(is_uniq, person_id_factor)
 
-mexico_16_unfactor  <- read_dta("data/2016_bolivia.dta") %>% 
+mexico_16_unfactor  <- read_dta("data/2016_mexico.dta") %>% 
   #Renaming ID column
   rename(person_id = uniq_id) %>% 
   #Checking for uniqueness
@@ -129,11 +129,11 @@ factor18_country <- function(country){
 
 ### USA 2018 file
 ```{r}
-usa_18_factor <- factor18_country("data/2018_bolivia.dta") %>% 
+usa_18_factor <- factor18_country("data/2018_usa.dta") %>% 
   #Checking for uniqueness
   assert(is_uniq, person_id_factor)
 
-usa_18_unfactor <- read_dta("data/2018_bolivia.dta") %>%
+usa_18_unfactor <- read_dta("data/2018_usa.dta") %>%
   #Renaming ID column
   rename(person_id = uniq_id) %>% 
   #Checking for uniquness
@@ -144,11 +144,11 @@ usa_18_unfactor <- read_dta("data/2018_bolivia.dta") %>%
 
 ### Mexico 2018 file
 ```{r}
-mexico_18_factor <- factor18_country("data/2018_bolivia.dta") %>% 
+mexico_18_factor <- factor18_country("data/2018_mexico.dta") %>% 
   #Checking for uniqueness
   assert(is_uniq, person_id_factor)
 
-mexico_18_unfactor <- read_dta("data/2018_bolivia.dta") %>%
+mexico_18_unfactor <- read_dta("data/2018_mexico.dta") %>%
   #Renaming ID column
   rename(person_id = uniq_id) %>% 
   #Checking for uniquness
