@@ -1,0 +1,85 @@
+---
+title: "13 - Creating Unique ID"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+# Structure
+This follows the same code as step four in the LAPOP-dashboard repository. The 2016 and 2018 files arlready have a unique identifier, and we used this as a template for making the unique ID in the merged files.
+
+First, there is a function written for the unfactored countries that is then applied to all unfactored merged countries.
+
+Then, a similar function is written for the factored countries, but in this step we add "_factor" to the end of each column name to signifiy that it belongs to the factored dataset.
+
+The unfactored and factored datasets will be joined later in the process.
+
+## Function to make unique ID
+```{r}
+making_uniqueID <- function(country){
+  #Combines idnum and idnum_14 with "/"
+  country <- mutate(country,
+                    idnum = ifelse(idnum_14 == '',
+                                   idnum,
+                                   paste(idnum,idnum_14,sep = "_"))) %>%
+    #Adds a underscore followed by a row number
+    mutate(., idnum = paste(idnum, row_number(), sep = "_")) %>% 
+    #Makes new column, person_id
+    mutate(.,
+           person_id = paste(
+             paste(
+               #Takes first 3 letters of country names and capitalizes it
+               toupper(substr(pais, 1, 3)),
+               #Selects last two digits of year
+               substr(year, 3, 4), sep = ''),
+             #Separates the country name from the year with underscore
+             idnum, sep = "_"))
+  
+  #Converts person_id column to a character
+  country <- transform(country, person_id = as.character(person_id)) %>% 
+    assert(is_uniq, person_id)
+  return(country)
+}
+```
+
+#### Applying `making_uniqueID` to unfactored, merged Bolivia file
+```{r}
+mexico_unique_unfactor <- making_uniqueID(mexico_unfactor)
+usa_unique_unfactor <- making_uniqueID(usa_unfactor)
+```
+
+## Function to make unique ID for factored data
+The function below is the same as above, except `making_uniqueID` is now `making_uniqueID_factor` to indicate it needs to be used for factored data.
+```{r}
+making_uniqueID_factor <- function(country){
+  #Combines idnum and idnum_14 with "/" and then makes unique id
+  country <- mutate(country,
+                    idnum_factor = ifelse(idnum_14_factor == '',
+                                   idnum_factor,
+                                   paste(idnum_factor,idnum_14_factor, sep = "_"))) %>%
+    #Adds underscore with row number
+    mutate(., idnum_factor = paste(idnum_factor, row_number(), sep = "_")) %>% 
+    #Makes new column, uniq_id_factor
+    mutate(.,
+           person_id_factor = paste(
+             paste(
+               #Takes first 3 letters of country names and capitalizes it
+               toupper(substr(pais_factor, 1, 3)),
+               #Selects last two digits of year
+               substr(year_factor, 3, 4), sep = ''),
+             #Separates the country name from the year with underscore
+             idnum_factor, sep = "_"))
+  #Converts uniq_id column to a character
+  country <- transform(country, person_id_factor = as.character(person_id_factor)) %>% 
+    assert(is_uniq, person_id_factor)
+  return(country)
+}
+```
+
+
+#### Applying `making_uniqueID_factor` to Bolivia
+```{r}
+mexico_unique_factor <- making_uniqueID_factor(mexico_factor)
+usa_unique_factor <- making_uniqueID_factor(usa_factor)
+```
+
