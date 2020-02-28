@@ -6,10 +6,19 @@ editor_options:
 ---
 
 # Structure
-I am reading in the data for the United States and Mexico from Box file.
+For my GOVT 110 course, I aim to examine public opinion on immigration from Mexico to the US based on data from the Latin American Public Project (LAPOP). 
+
+In this step, I am reading in the data for the United States and Mexico from years 2004 - 2018 that can be found in their [database](http://datasets.americasbarometer.org/database/index.php?freeUser=true). I chose to read in both the factored and unfactored forms of the data so that both would be easily accessible for analysis. This means that many steps are repeated twice in the beginning, but the factored and unfactored versions will be joined together later in the process.
+
+Below, you can find the suggested workflow in which you will be able to read in the desired datasets, format them into a tidy version, and explore the data as desired.
+
+## Suggested workflow
+1. Reading in Data
+2. Categories and Questions
+3. Adding Wave Column
 
 ## Libraries
-Bringing in the same libraries used in lapop-dashboard repo.
+Bringing in the same libraries used in [lapop-dashboard](https://github.com/vanderbilt-data-science/lapop-dashboard) repo that I worked on this past year. These packages handle reading in and clearning the data, and these will be the only ones you will need while following the suggest workflow.
 ```{r, message=FALSE}
 library(labelled)
 library(sjmisc)
@@ -20,6 +29,7 @@ library(varhandle)
 ```
 
 ## Creating factored and unfactored dataframes
+This function reads in and factors the given .dta file
 ```{r}
 factor_country <- function(country){
   #Reads file for the country
@@ -40,7 +50,7 @@ factor_country <- function(country){
 ```
 
 # Reading in merged country files
-I am using the **most recent** merged country file. Currently, there is no public file with 2016 and 2018 waves merged for Bolivia.
+I am using the **most recent** merged country file. Currently, there is no public file with 2016 and 2018 waves merged for Mexico, nor a public file with the 2018 data merged for the US.
 ```{r}
 usa_factor <- factor_country("data/merged_usa_2006_2017.dta")
 usa_unfactor <- read_dta("data/merged_usa_2006_2017.dta")
@@ -76,6 +86,7 @@ factor16_country <- function(country){
 ```
 
 ### USA 2016 File
+Applying `factor16_country()` to the 2016 US file.
 ```{r}
 usa_16_factor  <- factor16_country("data/2016_bolivia.dta") %>% 
   #Checking for uniqueness
@@ -91,6 +102,7 @@ usa_16_unfactor  <- read_dta("data/2016_bolivia.dta") %>%
 ```
 
 ### Mexico 2016 File
+Applying `factor16_country()` to the 2016 Mexico file.
 ```{r}
 mexico_16_factor  <- factor16_country("data/2016_mexico.dta") %>% 
   #Checking for uniqueness
