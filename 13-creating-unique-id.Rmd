@@ -136,6 +136,34 @@ making_uniqueID <- function(country){
 }
 ```
 
+## Function to make unique ID
+```{r}
+making_uniqueID <- function(country){
+  #Combines idnum and idnum_14 with "/"
+  country <- mutate(country,
+                    idnum = ifelse(idnum_14 == '',
+                                   idnum,
+                                   paste(idnum,idnum_14,sep = "_"))) %>%
+    #Adds a underscore followed by a row number
+    mutate(., idnum = paste(idnum, row_number(), sep = "_")) %>% 
+    #Makes new column, person_id
+    mutate(.,
+           person_id = paste(
+             paste(
+               #Takes first 3 letters of country names and capitalizes it
+               toupper(substr(pais, 1, 3)),
+               #Selects last two digits of year
+               substr(year, 3, 4), sep = ''),
+             #Separates the country name from the year with underscore
+             idnum, sep = "_"))
+  
+  #Converts person_id column to a character
+  country <- transform(country, person_id = as.character(person_id)) %>% 
+    assert(is_uniq, person_id)
+  return(country)
+}
+```
+
 
 #### Applying `making_uniqueID` to unfactored, merged US file
 ```{r}
