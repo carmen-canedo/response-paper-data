@@ -1,0 +1,235 @@
+---
+title: "14 - Lengthening and Joining"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+# Structure
+This document corresponds with step 5 of the LAPOP-dashboard repository. We will now lengthen the US and Mexico merged, 2016, and 2018 files and combine them with their respective factored and unfactored versions.
+
+Lengthening the data frames allows for us to put the data in a tidy format. Tidy data is a way of organizing data that makes it easy to visualize. This was developed by Hadley Wickham, and you can read more about tidy data [here](https://vita.had.co.nz/papers/tidy-data.pdf). When we simply read in the datasets, there are hundreds of columns, but by lengthening the data frame, we narrow the column down to five and it is easier to manage.
+
+## Functions to lengthen unfactored versions
+The first thing that we do is create a long, tidy version of the data. This makes it easier to filter and select what we want later on. We gathered the data so that "column_name" would have all the column names and "answer" would have all the observations to the corresponding column name.
+
+Then, we transformed answer to a character which is necessary for the later combination with the 2016/17 data frame. If you are not merging, you *do not* need to transform the answer column.
+
+Finally, we select the five columns that we want.
+
+## Unfactored datasets
+### For merged unfactored datasets
+```{r}
+lengthen <- function(country) {
+  #Makes sure the weight is saved
+  weight <- country %>%
+    select(weight1500)
+  weight <- weight %>%
+    rename(weights = weight1500)
+  #Brings together the following columns
+  country <- bind_cols(country,weight)
+  country <- country %>%
+    gather(column_name, answer_measure, estratopri:formatq)
+  #Necessary when joining with 16/17
+  country <- transform(country, answer_measure = as.character(answer_measure))
+  #Selects the columns we want
+  country <- country %>% 
+    select(pais, wave, person_id, column_name, answer_measure, weights)
+  return(country)
+}
+```
+
+### For 2016 Nexico unfactored file
+```{r}
+lengthen_16 <- function(country) {
+  #Makes sure the weight is saved
+  weight <- country %>%
+    select(wt)
+  weight <- weight %>%
+    rename(weights = wt)
+  #Brings together the following columns
+  country <- bind_cols(country,weight)
+  country <- country %>%
+    #Brings together the following columns
+    gather(column_name, answer_measure, estratopri:formatq)
+  
+  #Necessary when joining with merged files
+  country <- transform(country, answer_measure = as.character(answer_measure))
+  
+  #Selects the columns we want
+  country <- country %>% 
+    select(pais, wave, person_id, column_name, answer_measure, weights)
+  return(country)
+}
+```
+
+### For 2018 Mexico unfactored file
+```{r}
+lengthen_18 <- function(country) {
+  #Makes sure the weight is saved
+  weight <- country %>%
+    select(wt)
+  weight <- weight %>%
+    rename(weights = wt)
+  #Brings together the following columns
+  country <- bind_cols(country,weight)
+  country <- country %>%
+    #Brings together the following columns
+    gather(column_name, answer_measure, estratopri:formatq)
+  
+  #Necessary when joining with merged files
+  country <- transform(country, answer_measure = as.character(answer_measure))
+  
+  #Selects the columns we want
+  country <- country %>% 
+    select(pais, wave, person_id, column_name, answer_measure, weights)
+  return(country)
+}
+```
+
+
+## Functions to lengthen factored versions
+These functions are almost identical to the ones above except, they have "_factor" for the column names.
+
+### For merged, factored datasets
+```{r}
+lengthen_factor <- function(country) {
+  #Makes sure the weight is saved
+  weight <- country %>%
+    select(weight1500_factor)
+ weight <- weight %>%
+   rename(weights_factor = weight1500_factor)
+  #Brings together the following columns
+  country <- bind_cols(country,weight)
+  country <- country %>%
+    #Brings together the following columns
+    gather(column_name_factor, answer_dimension, estratopri_factor:formatq_factor)
+  
+  #Selects columns that we want
+  country <- country %>% 
+    select(pais_factor, wave_factor, person_id_factor, column_name_factor, answer_dimension, weights_factor)
+  return(country)
+}
+```
+
+### For 2016 factored datasets
+```{r}
+lengthen_16factor <- function(country) {
+  #Makes sure the weight is saved
+  weight <- country %>%
+    select(wt_factor)
+  weight <- weight %>% rename(weights_factor = wt_factor) %>%
+    transform(weights_factor = as.numeric(weights_factor))
+  #Brings together the following columns
+  country <- bind_cols(country,weight)
+  country <- country %>%
+    #Brings together the following columns
+    gather(column_name_factor, answer_dimension, estratopri_factor:formatq_factor)
+  
+  #Selects columns that we want
+  country <- country %>% 
+    select(pais_factor, wave_factor, person_id_factor, column_name_factor, answer_dimension, weights_factor)
+  return(country)
+}
+```
+
+### For 2018 factored datasets
+```{r}
+lengthen_18factor <- function(country) {
+  #Makes sure the weight is saved
+  weight <- country %>%
+    select(wt_factor)
+  weight <- weight %>% rename(weights_factor = wt_factor) %>%
+    transform(weights_factor = as.numeric(weights_factor))
+  #Brings together the following columns
+  country <- bind_cols(country,weight)
+  country <- country %>%
+    #Brings together the following columns
+    gather(column_name_factor, answer_dimension, estratopri_factor:formatq_factor)
+  
+  #Selects columns that we want
+  country <- country %>% 
+    select(pais_factor, wave_factor, person_id_factor, column_name_factor, answer_dimension, weights_factor)
+  return(country)
+}
+```
+
+# Functions to join .csvs to data
+## Connects the category and question excel to the dataframes
+```{r}
+factor_add <- function(country){
+  #Uses left joins to bring together the excel doc and dataframe based on column name
+  country <- country %>%
+    full_join(factored_questions, by = 'column_name_factor') %>%
+    full_join(factored_categories, by = 'column_name_factor')
+  return(country)
+}
+```
+
+## Connects the category and question excel to the dataframes
+```{r}
+unfactor_add <- function(country){
+  #Uses left joins to bring together the excel doc and dataframe based on column name
+  country <- country %>%
+    full_join(unfactored_questions, by = 'column_name') %>%
+    full_join(unfactored_categories, by = 'column_name')
+  return(country)
+}
+```
+
+# Cleaning data
+This function further formats the data frame into the shape it needs to be when we bind all years together.
+```{r}
+clean <- function(country){
+  #Filters out the column names that are not in the list, variables.
+  country <- country %>%
+    #Selects the columns that are no longer needed
+    select(-wave_factor, -person_id, -column_name, -column_name_factor, -question_labeled_en, -weights_factor) %>% 
+    #Renames pais_factor to country
+    rename(country = pais_factor)
+  return(country)
+}
+```
+
+# Unmerged combination
+This function takes in the unfactored version for before 2016 as well as after. It takes each dataframe, lengthens it, adds the unfactored versions to each other, and the factored versions to each other. Then it filters out the NAs from both, and combines them togehter. For the majority of each step there is a call to a function written above.
+```{r}
+unmerged <- function(unfactor, unfactor16, unfactor18, factor, factor16, factor18){
+  #Lengthens all dataframes through above wrtten lengthen functions
+  unfactor <- lengthen(unfactor)
+  unfactor16 <- lengthen_16(unfactor16)
+  unfactor18 <- lengthen_18(unfactor18)
+  factor <- lengthen_factor(factor)
+  factor16 <- lengthen_16factor(factor16)
+  factor18 <- lengthen_18factor(factor18)
+  
+  #Brings unfactored and factored seperated date dataframes together
+  unfactor_plus <- union_all(unfactor,unfactor16) 
+  unfactor_plus <- union_all(unfactor_plus, unfactor18) %>% 
+    transform(answer_measure = as.numeric(answer_measure)) 
+  
+  factor_plus <- union_all(factor,factor16)
+  factor_plus <- union_all(factor_plus, factor18)
+  
+  #Gets rid of the NAs, and adds the category and question column by above written functions 
+  unfactor_plus <- unfactor_add(unfactor_plus) %>%
+    filter(is.na(category_en) == FALSE)
+  factor_plus <- factor_add(factor_plus) %>%
+    filter(is.na(category_en) == FALSE)
+  
+  #Finally combines the unfactor and factor using bind_cols
+  unfactor_plus <- unfactor_plus %>%
+    select(-category_en)
+  complete <- bind_cols(factor_plus, unfactor_plus)  %>%
+    transform(answer_measure = as.numeric(answer_measure))
+  
+  #Cleans the final version with above written function
+  complete <- clean(complete)
+}
+```
+
+# Combination of all data frames
+```{r}
+# Mexico
+mexico_clean <- unmerged(mexico_unique_unfactor, mexico_16_unfactor, mexico_18_unfactor, mexico_unique_factor, mexico_16_factor, mexico_18_factor)
+```
