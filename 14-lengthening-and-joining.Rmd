@@ -39,7 +39,7 @@ lengthen <- function(country) {
 }
 ```
 
-### For 2016 Nexico unfactored file
+### For 2016 Mexico unfactored file
 ```{r}
 lengthen_16 <- function(country) {
   #Makes sure the weight is saved
@@ -191,10 +191,44 @@ clean <- function(country){
 }
 ```
 
-# Unmerged combination
+# Combining unmerged waves
 This function takes in the unfactored version for before 2016 as well as after. It takes each dataframe, lengthens it, adds the unfactored versions to each other, and the factored versions to each other. Then it filters out the NAs from both, and combines them togehter. For the majority of each step there is a call to a function written above.
+
+## Adds just 2018 to the US merged
 ```{r}
-unmerged <- function(unfactor, unfactor16, unfactor18, factor, factor16, factor18){
+add_one <- function(unfactor, unfactor18, factor, factor18){
+  #Lengthens all dataframes through above wrtten lengthen functions
+  unfactor <- lengthen(unfactor)
+  unfactor18 <- lengthen_18(unfactor18)
+  factor <- lengthen_factor(factor)
+  factor18 <- lengthen_18factor(factor18)
+  
+  #Brings unfactored and factored seperated date dataframes together
+  unfactor_plus <- union_all(unfactor,unfactor18) %>% 
+    transform(answer_measure = as.numeric(answer_measure)) 
+  factor_plus <- union_all(factor, factor18)
+  
+  #Gets rid of the NAs, and adds the category and question column by above written functions 
+  unfactor_plus <- unfactor_add(unfactor_plus) %>%
+    filter(is.na(category_en) == FALSE)
+  factor_plus <- factor_add(factor_plus) %>%
+    filter(is.na(category_en) == FALSE)
+  
+  #Finally combines the unfactor and factor using bind_cols
+  unfactor_plus <- unfactor_plus %>%
+    select(-category_en)
+  complete <- bind_cols(factor_plus, unfactor_plus)  %>%
+    transform(answer_measure = as.numeric(answer_measure))
+  
+  #Cleans the final version with above written function
+  complete <- clean(complete)
+}
+```
+
+
+## Adds 2016 and 2018 waves to Mexico merged
+```{r}
+add_two_waves <- function(unfactor, unfactor16, unfactor18, factor, factor16, factor18){
   #Lengthens all dataframes through above wrtten lengthen functions
   unfactor <- lengthen(unfactor)
   unfactor16 <- lengthen_16(unfactor16)
@@ -228,8 +262,11 @@ unmerged <- function(unfactor, unfactor16, unfactor18, factor, factor16, factor1
 }
 ```
 
-# Combination of all data frames
+# Combination of all data frames into their respective country
 ```{r}
+# United States
+usa_clean <- add_one(usa_unique_unfactor, usa_18_unfactor, usa_unique_factor, usa_18_factor)
+
 # Mexico
-mexico_clean <- unmerged(mexico_unique_unfactor, mexico_16_unfactor, mexico_18_unfactor, mexico_unique_factor, mexico_16_factor, mexico_18_factor)
+mexico_clean <- add_two_waves(mexico_unique_unfactor, mexico_16_unfactor, mexico_18_unfactor, mexico_unique_factor, mexico_16_factor, mexico_18_factor)
 ```
