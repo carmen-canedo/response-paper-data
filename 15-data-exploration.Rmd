@@ -1,0 +1,46 @@
+---
+title: "15 - Data Exploration"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+# Structure
+I am now going to explore the clean versions of the Mexico and US data to look for patterns in the public opinion of immigration in both countries.
+
+I am particularly interested in questions surrounding:
+  + **who** are the people immigrating
+  + why inidividuals are leaving their countries
+  + how many individuals are actually migrating to/from each country
+  + how citizens of each country view immigrants and immigration policy
+  
+## Reading through questions
+In order to familiarize myself with the questions asked by LAPOP in these countries, I'll be using `tabyl()`. This will help give me insight in what qyestions and factors may be relevant.
+
+## Making space for memory
+```{r}
+rm.all.but(keep = c("mexico_clean", "usa_clean"))
+```
+
+## Checking categories
+```{r}
+mexico_clean %>% 
+  tabyl(category_en)
+```
+
+It looks like the possible pertinent categories are
+  + Migration
+  + Civic and Political Engagement
+  + Climate Change/Disaster Risk Reduction Issues
+  + Corruption
+  + Crime, Insecurity, and Policy Preferences
+  + Evaluation of Institutions, Political Systems and other Persons
+  + Foreign Relations
+  + Political and Religious Orientation
+  + Political Tolerance
+  + Political/Electoral Engagement
+  + Socio-Demographic Characteristics
+  + Support for Democracy and Democratic Institutions
+  + The Economy
+  
+In order to narrow down the content, I'm going to look at the questions in each of these categories.
