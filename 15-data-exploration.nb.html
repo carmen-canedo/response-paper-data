@@ -1817,12 +1817,232 @@ $(document).ready(function () {
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>It looks like the possible pertinent categories are + Migration + Civic and Political Engagement + Climate Change/Disaster Risk Reduction Issues + Corruption + Crime, Insecurity, and Policy Preferences + Evaluation of Institutions, Political Systems and other Persons + Foreign Relations + Political and Religious Orientation + Political Tolerance + Political/Electoral Engagement + Socio-Demographic Characteristics + Support for Democracy and Democratic Institutions + The Economy</p>
+</div>
+<div id="exploring-questions-by-category-and-country" class="section level2">
+<h2>Exploring questions by category and country</h2>
 <p>In order to narrow down the content, I’m going to look at the questions in each of these categories.</p>
+<div id="mexico" class="section level3">
+<h3>Mexico</h3>
+<div id="migration" class="section level4">
+<h4>Migration</h4>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWV4aWNvX2NsZWFuICU+JSBcbiAgZmlsdGVyKGNhdGVnb3J5X2VuID09IFwiTWlncmF0aW9uXCIpICU+JSBcbiAgdGFieWwocXVlc3Rpb25fZXMpXG5cbmBgYCJ9 -->
+<pre class="r"><code>mexico_clean %&gt;% 
+  filter(category_en == &quot;Migration&quot;) %&gt;% 
+  tabyl(question_es)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHF1ZXN0aW9uX2VzICAgICBuIHBlcmNlbnRcbiBJbnRlbmNpb25lcyBkZSB2aXZpciBvIHRyYWJhamFyIGVuIG90cm8gcGHDrXMgMTI0NzYgICAgIDAuNVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFJlY2liZSByZW1lc2FzIDEyNDc2ICAgICAwLjVcbiJ9 -->
+<pre><code>                                  question_es     n percent
+ Intenciones de vivir o trabajar en otro país 12476     0.5
+                               Recibe remesas 12476     0.5</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="civic-and-political-engagement" class="section level4">
+<h4>Civic and Political Engagement</h4>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWV4aWNvX2NsZWFuICU+JSBcbiAgZmlsdGVyKGNhdGVnb3J5X2VuID09IFwiTWlncmF0aW9uXCIpICU+JSBcbiAgdGFieWwocXVlc3Rpb25fZXMpXG5gYGAifQ== -->
+<pre class="r"><code>mexico_clean %&gt;% 
+  filter(category_en == &quot;Migration&quot;) %&gt;% 
+  tabyl(question_es)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="climate-changedisaster-risk-reduction-issues" class="section level4">
+<h4>Climate Change/Disaster Risk Reduction Issues</h4>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWV4aWNvX2NsZWFuICU+JSBcbiAgZmlsdGVyKGNhdGVnb3J5X2VuID09IFwiTWlncmF0aW9uXCIpICU+JSBcbiAgdGFieWwocXVlc3Rpb25fZXMpXG5gYGAifQ== -->
+<pre class="r"><code>mexico_clean %&gt;% 
+  filter(category_en == &quot;Migration&quot;) %&gt;% 
+  tabyl(question_es)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="corruption" class="section level4">
+<h4>Corruption</h4>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWV4aWNvX2NsZWFuICU+JSBcbiAgZmlsdGVyKGNhdGVnb3J5X2VuID09IFwiTWlncmF0aW9uXCIpICU+JSBcbiAgdGFieWwocXVlc3Rpb25fZXMpXG5gYGAifQ== -->
+<pre class="r"><code>mexico_clean %&gt;% 
+  filter(category_en == &quot;Migration&quot;) %&gt;% 
+  tabyl(question_es)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="crime-insecurity-and-policy-preferences" class="section level4">
+<h4>Crime, Insecurity, and Policy Preferences</h4>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWV4aWNvX2NsZWFuICU+JSBcbiAgZmlsdGVyKGNhdGVnb3J5X2VuID09IFwiTWlncmF0aW9uXCIpICU+JSBcbiAgdGFieWwocXVlc3Rpb25fZXMpXG5gYGAifQ== -->
+<pre class="r"><code>mexico_clean %&gt;% 
+  filter(category_en == &quot;Migration&quot;) %&gt;% 
+  tabyl(question_es)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="evaluation-of-institutions-political-systems-and-other-persons" class="section level4">
+<h4>Evaluation of Institutions, Political Systems and other Persons</h4>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWV4aWNvX2NsZWFuICU+JSBcbiAgZmlsdGVyKGNhdGVnb3J5X2VuID09IFwiTWlncmF0aW9uXCIpICU+JSBcbiAgdGFieWwocXVlc3Rpb25fZXMpXG5gYGAifQ== -->
+<pre class="r"><code>mexico_clean %&gt;% 
+  filter(category_en == &quot;Migration&quot;) %&gt;% 
+  tabyl(question_es)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="foreign-relations" class="section level4">
+<h4>Foreign Relations</h4>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWV4aWNvX2NsZWFuICU+JSBcbiAgZmlsdGVyKGNhdGVnb3J5X2VuID09IFwiTWlncmF0aW9uXCIpICU+JSBcbiAgdGFieWwocXVlc3Rpb25fZXMpXG5gYGAifQ== -->
+<pre class="r"><code>mexico_clean %&gt;% 
+  filter(category_en == &quot;Migration&quot;) %&gt;% 
+  tabyl(question_es)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="political-and-religious-orientation" class="section level4">
+<h4>Political and Religious Orientation</h4>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWV4aWNvX2NsZWFuICU+JSBcbiAgZmlsdGVyKGNhdGVnb3J5X2VuID09IFwiTWlncmF0aW9uXCIpICU+JSBcbiAgdGFieWwocXVlc3Rpb25fZXMpXG5gYGAifQ== -->
+<pre class="r"><code>mexico_clean %&gt;% 
+  filter(category_en == &quot;Migration&quot;) %&gt;% 
+  tabyl(question_es)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="political-tolerance" class="section level4">
+<h4>Political Tolerance</h4>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWV4aWNvX2NsZWFuICU+JSBcbiAgZmlsdGVyKGNhdGVnb3J5X2VuID09IFwiTWlncmF0aW9uXCIpICU+JSBcbiAgdGFieWwocXVlc3Rpb25fZXMpXG5gYGAifQ== -->
+<pre class="r"><code>mexico_clean %&gt;% 
+  filter(category_en == &quot;Migration&quot;) %&gt;% 
+  tabyl(question_es)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="politicalelectoral-engagement" class="section level4">
+<h4>Political/Electoral Engagement</h4>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWV4aWNvX2NsZWFuICU+JSBcbiAgZmlsdGVyKGNhdGVnb3J5X2VuID09IFwiTWlncmF0aW9uXCIpICU+JSBcbiAgdGFieWwocXVlc3Rpb25fZXMpXG5gYGAifQ== -->
+<pre class="r"><code>mexico_clean %&gt;% 
+  filter(category_en == &quot;Migration&quot;) %&gt;% 
+  tabyl(question_es)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="socio-demographic-characteristics" class="section level4">
+<h4>Socio-Demographic Characteristics</h4>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWV4aWNvX2NsZWFuICU+JSBcbiAgZmlsdGVyKGNhdGVnb3J5X2VuID09IFwiTWlncmF0aW9uXCIpICU+JSBcbiAgdGFieWwocXVlc3Rpb25fZXMpXG5gYGAifQ== -->
+<pre class="r"><code>mexico_clean %&gt;% 
+  filter(category_en == &quot;Migration&quot;) %&gt;% 
+  tabyl(question_es)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="support-for-democracy-and-democratic-institutions" class="section level4">
+<h4>Support for Democracy and Democratic Institutions</h4>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWV4aWNvX2NsZWFuICU+JSBcbiAgZmlsdGVyKGNhdGVnb3J5X2VuID09IFwiTWlncmF0aW9uXCIpICU+JSBcbiAgdGFieWwocXVlc3Rpb25fZXMpXG5gYGAifQ== -->
+<pre class="r"><code>mexico_clean %&gt;% 
+  filter(category_en == &quot;Migration&quot;) %&gt;% 
+  tabyl(question_es)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="the-economy" class="section level4">
+<h4>The Economy</h4>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWV4aWNvX2NsZWFuICU+JSBcbiAgZmlsdGVyKGNhdGVnb3J5X2VuID09IFwiTWlncmF0aW9uXCIpICU+JSBcbiAgdGFieWwocXVlc3Rpb25fZXMpXG5gYGAifQ== -->
+<pre class="r"><code>mexico_clean %&gt;% 
+  filter(category_en == &quot;Migration&quot;) %&gt;% 
+  tabyl(question_es)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+</div>
+<div id="united-states" class="section level3">
+<h3>United States</h3>
+<div id="migration-1" class="section level4">
+<h4>Migration</h4>
+<p>This question is only asked once across all the data, but I wonder if this is because I only have the questions in Spanish…</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudXNhX2NsZWFuICU+JSBcbiAgZmlsdGVyKGNhdGVnb3J5X2VuID09IFwiTWlncmF0aW9uXCIpICU+JSBcbiAgdGFieWwocXVlc3Rpb25fZXMpXG5gYGAifQ== -->
+<pre class="r"><code>usa_clean %&gt;% 
+  filter(category_en == &quot;Migration&quot;) %&gt;% 
+  tabyl(question_es)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="civic-and-political-engagement-1" class="section level4">
+<h4>Civic and Political Engagement</h4>
+</div>
+<div id="climate-changedisaster-risk-reduction-issues-1" class="section level4">
+<h4>Climate Change/Disaster Risk Reduction Issues</h4>
+</div>
+<div id="corruption-1" class="section level4">
+<h4>Corruption</h4>
+</div>
+<div id="crime-insecurity-and-policy-preferences-1" class="section level4">
+<h4>Crime, Insecurity, and Policy Preferences</h4>
+</div>
+<div id="evaluation-of-institutions-political-systems-and-other-persons-1" class="section level4">
+<h4>Evaluation of Institutions, Political Systems and other Persons</h4>
+</div>
+<div id="foreign-relations-1" class="section level4">
+<h4>Foreign Relations</h4>
+</div>
+<div id="political-and-religious-orientation-1" class="section level4">
+<h4>Political and Religious Orientation</h4>
+</div>
+<div id="political-tolerance-1" class="section level4">
+<h4>Political Tolerance</h4>
+</div>
+<div id="politicalelectoral-engagement-1" class="section level4">
+<h4>Political/Electoral Engagement</h4>
+</div>
+<div id="socio-demographic-characteristics-1" class="section level4">
+<h4>Socio-Demographic Characteristics</h4>
+</div>
+<div id="support-for-democracy-and-democratic-institutions-1" class="section level4">
+<h4>Support for Democracy and Democratic Institutions</h4>
+</div>
+<div id="the-economy-1" class="section level4">
+<h4>The Economy</h4>
 <!-- rnb-text-end -->
 </div>
 </div>
+</div>
+</div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiMTUgLSBEYXRhIEV4cGxvcmF0aW9uIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKZWRpdG9yX29wdGlvbnM6IAogIGNodW5rX291dHB1dF90eXBlOiBpbmxpbmUKLS0tCgojIFN0cnVjdHVyZQpJIGFtIG5vdyBnb2luZyB0byBleHBsb3JlIHRoZSBjbGVhbiB2ZXJzaW9ucyBvZiB0aGUgTWV4aWNvIGFuZCBVUyBkYXRhIHRvIGxvb2sgZm9yIHBhdHRlcm5zIGluIHRoZSBwdWJsaWMgb3BpbmlvbiBvZiBpbW1pZ3JhdGlvbiBpbiBib3RoIGNvdW50cmllcy4KCkkgYW0gcGFydGljdWxhcmx5IGludGVyZXN0ZWQgaW4gcXVlc3Rpb25zIHN1cnJvdW5kaW5nOgogICsgKip3aG8qKiBhcmUgdGhlIHBlb3BsZSBpbW1pZ3JhdGluZwogICsgd2h5IGluaWRpdmlkdWFscyBhcmUgbGVhdmluZyB0aGVpciBjb3VudHJpZXMKICArIGhvdyBtYW55IGluZGl2aWR1YWxzIGFyZSBhY3R1YWxseSBtaWdyYXRpbmcgdG8vZnJvbSBlYWNoIGNvdW50cnkKICArIGhvdyBjaXRpemVucyBvZiBlYWNoIGNvdW50cnkgdmlldyBpbW1pZ3JhbnRzIGFuZCBpbW1pZ3JhdGlvbiBwb2xpY3kKICAKIyMgUmVhZGluZyB0aHJvdWdoIHF1ZXN0aW9ucwpJbiBvcmRlciB0byBmYW1pbGlhcml6ZSBteXNlbGYgd2l0aCB0aGUgcXVlc3Rpb25zIGFza2VkIGJ5IExBUE9QIGluIHRoZXNlIGNvdW50cmllcywgSSdsbCBiZSB1c2luZyBgdGFieWwoKWAuIFRoaXMgd2lsbCBoZWxwIGdpdmUgbWUgaW5zaWdodCBpbiB3aGF0IHF5ZXN0aW9ucyBhbmQgZmFjdG9ycyBtYXkgYmUgcmVsZXZhbnQuCgojIyBNYWtpbmcgc3BhY2UgZm9yIG1lbW9yeQpgYGB7cn0Kcm0uYWxsLmJ1dChrZWVwID0gYygibWV4aWNvX2NsZWFuIiwgInVzYV9jbGVhbiIpKQpgYGAKCiMjIENoZWNraW5nIGNhdGVnb3JpZXMKYGBge3J9Cm1leGljb19jbGVhbiAlPiUgCiAgdGFieWwoY2F0ZWdvcnlfZW4pCmBgYAoKSXQgbG9va3MgbGlrZSB0aGUgcG9zc2libGUgcGVydGluZW50IGNhdGVnb3JpZXMgYXJlCiAgKyBNaWdyYXRpb24KICArIENpdmljIGFuZCBQb2xpdGljYWwgRW5nYWdlbWVudAogICsgQ2xpbWF0ZSBDaGFuZ2UvRGlzYXN0ZXIgUmlzayBSZWR1Y3Rpb24gSXNzdWVzCiAgKyBDb3JydXB0aW9uCiAgKyBDcmltZSwgSW5zZWN1cml0eSwgYW5kIFBvbGljeSBQcmVmZXJlbmNlcwogICsgRXZhbHVhdGlvbiBvZiBJbnN0aXR1dGlvbnMsIFBvbGl0aWNhbCBTeXN0ZW1zIGFuZCBvdGhlciBQZXJzb25zCiAgKyBGb3JlaWduIFJlbGF0aW9ucwogICsgUG9saXRpY2FsIGFuZCBSZWxpZ2lvdXMgT3JpZW50YXRpb24KICArIFBvbGl0aWNhbCBUb2xlcmFuY2UKICArIFBvbGl0aWNhbC9FbGVjdG9yYWwgRW5nYWdlbWVudAogICsgU29jaW8tRGVtb2dyYXBoaWMgQ2hhcmFjdGVyaXN0aWNzCiAgKyBTdXBwb3J0IGZvciBEZW1vY3JhY3kgYW5kIERlbW9jcmF0aWMgSW5zdGl0dXRpb25zCiAgKyBUaGUgRWNvbm9teQogIApJbiBvcmRlciB0byBuYXJyb3cgZG93biB0aGUgY29udGVudCwgSSdtIGdvaW5nIHRvIGxvb2sgYXQgdGhlIHF1ZXN0aW9ucyBpbiBlYWNoIG9mIHRoZXNlIGNhdGVnb3JpZXMu</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiMTUgLSBEYXRhIEV4cGxvcmF0aW9uIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKZWRpdG9yX29wdGlvbnM6IAogIGNodW5rX291dHB1dF90eXBlOiBpbmxpbmUKLS0tCgojIFN0cnVjdHVyZQpJIGFtIG5vdyBnb2luZyB0byBleHBsb3JlIHRoZSBjbGVhbiB2ZXJzaW9ucyBvZiB0aGUgTWV4aWNvIGFuZCBVUyBkYXRhIHRvIGxvb2sgZm9yIHBhdHRlcm5zIGluIHRoZSBwdWJsaWMgb3BpbmlvbiBvZiBpbW1pZ3JhdGlvbiBpbiBib3RoIGNvdW50cmllcy4KCkkgYW0gcGFydGljdWxhcmx5IGludGVyZXN0ZWQgaW4gcXVlc3Rpb25zIHN1cnJvdW5kaW5nOgogICsgKip3aG8qKiBhcmUgdGhlIHBlb3BsZSBpbW1pZ3JhdGluZwogICsgd2h5IGluaWRpdmlkdWFscyBhcmUgbGVhdmluZyB0aGVpciBjb3VudHJpZXMKICArIGhvdyBtYW55IGluZGl2aWR1YWxzIGFyZSBhY3R1YWxseSBtaWdyYXRpbmcgdG8vZnJvbSBlYWNoIGNvdW50cnkKICArIGhvdyBjaXRpemVucyBvZiBlYWNoIGNvdW50cnkgdmlldyBpbW1pZ3JhbnRzIGFuZCBpbW1pZ3JhdGlvbiBwb2xpY3kKICAKIyMgUmVhZGluZyB0aHJvdWdoIHF1ZXN0aW9ucwpJbiBvcmRlciB0byBmYW1pbGlhcml6ZSBteXNlbGYgd2l0aCB0aGUgcXVlc3Rpb25zIGFza2VkIGJ5IExBUE9QIGluIHRoZXNlIGNvdW50cmllcywgSSdsbCBiZSB1c2luZyBgdGFieWwoKWAuIFRoaXMgd2lsbCBoZWxwIGdpdmUgbWUgaW5zaWdodCBpbiB3aGF0IHF5ZXN0aW9ucyBhbmQgZmFjdG9ycyBtYXkgYmUgcmVsZXZhbnQuCgojIyBNYWtpbmcgc3BhY2UgZm9yIG1lbW9yeQpgYGB7cn0Kcm0uYWxsLmJ1dChrZWVwID0gYygibWV4aWNvX2NsZWFuIiwgInVzYV9jbGVhbiIpKQpgYGAKCiMjIENoZWNraW5nIGNhdGVnb3JpZXMKYGBge3J9Cm1leGljb19jbGVhbiAlPiUgCiAgdGFieWwoY2F0ZWdvcnlfZW4pCmBgYAoKSXQgbG9va3MgbGlrZSB0aGUgcG9zc2libGUgcGVydGluZW50IGNhdGVnb3JpZXMgYXJlCiAgKyBNaWdyYXRpb24KICArIENpdmljIGFuZCBQb2xpdGljYWwgRW5nYWdlbWVudAogICsgQ2xpbWF0ZSBDaGFuZ2UvRGlzYXN0ZXIgUmlzayBSZWR1Y3Rpb24gSXNzdWVzCiAgKyBDb3JydXB0aW9uCiAgKyBDcmltZSwgSW5zZWN1cml0eSwgYW5kIFBvbGljeSBQcmVmZXJlbmNlcwogICsgRXZhbHVhdGlvbiBvZiBJbnN0aXR1dGlvbnMsIFBvbGl0aWNhbCBTeXN0ZW1zIGFuZCBvdGhlciBQZXJzb25zCiAgKyBGb3JlaWduIFJlbGF0aW9ucwogICsgUG9saXRpY2FsIGFuZCBSZWxpZ2lvdXMgT3JpZW50YXRpb24KICArIFBvbGl0aWNhbCBUb2xlcmFuY2UKICArIFBvbGl0aWNhbC9FbGVjdG9yYWwgRW5nYWdlbWVudAogICsgU29jaW8tRGVtb2dyYXBoaWMgQ2hhcmFjdGVyaXN0aWNzCiAgKyBTdXBwb3J0IGZvciBEZW1vY3JhY3kgYW5kIERlbW9jcmF0aWMgSW5zdGl0dXRpb25zCiAgKyBUaGUgRWNvbm9teQoKIyMgRXhwbG9yaW5nIHF1ZXN0aW9ucyBieSBjYXRlZ29yeSBhbmQgY291bnRyeQpJbiBvcmRlciB0byBuYXJyb3cgZG93biB0aGUgY29udGVudCwgSSdtIGdvaW5nIHRvIGxvb2sgYXQgdGhlIHF1ZXN0aW9ucyBpbiBlYWNoIG9mIHRoZXNlIGNhdGVnb3JpZXMuCgojIyMgTWV4aWNvCiMjIyMgTWlncmF0aW9uCmBgYHtyfQptZXhpY29fY2xlYW4gJT4lIAogIGZpbHRlcihjYXRlZ29yeV9lbiA9PSAiTWlncmF0aW9uIikgJT4lIAogIHRhYnlsKHF1ZXN0aW9uX2VzKQpgYGAKCiMjIyMgQ2l2aWMgYW5kIFBvbGl0aWNhbCBFbmdhZ2VtZW50CmBgYHtyfQptZXhpY29fY2xlYW4gJT4lIAogIGZpbHRlcihjYXRlZ29yeV9lbiA9PSAiTWlncmF0aW9uIikgJT4lIAogIHRhYnlsKHF1ZXN0aW9uX2VzKQpgYGAKCgojIyMjIENsaW1hdGUgQ2hhbmdlL0Rpc2FzdGVyIFJpc2sgUmVkdWN0aW9uIElzc3VlcwpgYGB7cn0KbWV4aWNvX2NsZWFuICU+JSAKICBmaWx0ZXIoY2F0ZWdvcnlfZW4gPT0gIk1pZ3JhdGlvbiIpICU+JSAKICB0YWJ5bChxdWVzdGlvbl9lcykKYGBgCgoKIyMjIyBDb3JydXB0aW9uCmBgYHtyfQptZXhpY29fY2xlYW4gJT4lIAogIGZpbHRlcihjYXRlZ29yeV9lbiA9PSAiTWlncmF0aW9uIikgJT4lIAogIHRhYnlsKHF1ZXN0aW9uX2VzKQpgYGAKCgojIyMjIENyaW1lLCBJbnNlY3VyaXR5LCBhbmQgUG9saWN5IFByZWZlcmVuY2VzCmBgYHtyfQptZXhpY29fY2xlYW4gJT4lIAogIGZpbHRlcihjYXRlZ29yeV9lbiA9PSAiTWlncmF0aW9uIikgJT4lIAogIHRhYnlsKHF1ZXN0aW9uX2VzKQpgYGAKCgojIyMjIEV2YWx1YXRpb24gb2YgSW5zdGl0dXRpb25zLCBQb2xpdGljYWwgU3lzdGVtcyBhbmQgb3RoZXIgUGVyc29ucwpgYGB7cn0KbWV4aWNvX2NsZWFuICU+JSAKICBmaWx0ZXIoY2F0ZWdvcnlfZW4gPT0gIk1pZ3JhdGlvbiIpICU+JSAKICB0YWJ5bChxdWVzdGlvbl9lcykKYGBgCgoKIyMjIyBGb3JlaWduIFJlbGF0aW9ucwpgYGB7cn0KbWV4aWNvX2NsZWFuICU+JSAKICBmaWx0ZXIoY2F0ZWdvcnlfZW4gPT0gIk1pZ3JhdGlvbiIpICU+JSAKICB0YWJ5bChxdWVzdGlvbl9lcykKYGBgCgoKIyMjIyBQb2xpdGljYWwgYW5kIFJlbGlnaW91cyBPcmllbnRhdGlvbgpgYGB7cn0KbWV4aWNvX2NsZWFuICU+JSAKICBmaWx0ZXIoY2F0ZWdvcnlfZW4gPT0gIk1pZ3JhdGlvbiIpICU+JSAKICB0YWJ5bChxdWVzdGlvbl9lcykKYGBgCgoKIyMjIyBQb2xpdGljYWwgVG9sZXJhbmNlCmBgYHtyfQptZXhpY29fY2xlYW4gJT4lIAogIGZpbHRlcihjYXRlZ29yeV9lbiA9PSAiTWlncmF0aW9uIikgJT4lIAogIHRhYnlsKHF1ZXN0aW9uX2VzKQpgYGAKCgojIyMjIFBvbGl0aWNhbC9FbGVjdG9yYWwgRW5nYWdlbWVudApgYGB7cn0KbWV4aWNvX2NsZWFuICU+JSAKICBmaWx0ZXIoY2F0ZWdvcnlfZW4gPT0gIk1pZ3JhdGlvbiIpICU+JSAKICB0YWJ5bChxdWVzdGlvbl9lcykKYGBgCgoKIyMjIyBTb2Npby1EZW1vZ3JhcGhpYyBDaGFyYWN0ZXJpc3RpY3MKYGBge3J9Cm1leGljb19jbGVhbiAlPiUgCiAgZmlsdGVyKGNhdGVnb3J5X2VuID09ICJNaWdyYXRpb24iKSAlPiUgCiAgdGFieWwocXVlc3Rpb25fZXMpCmBgYAoKCiMjIyMgU3VwcG9ydCBmb3IgRGVtb2NyYWN5IGFuZCBEZW1vY3JhdGljIEluc3RpdHV0aW9ucwpgYGB7cn0KbWV4aWNvX2NsZWFuICU+JSAKICBmaWx0ZXIoY2F0ZWdvcnlfZW4gPT0gIk1pZ3JhdGlvbiIpICU+JSAKICB0YWJ5bChxdWVzdGlvbl9lcykKYGBgCgoKIyMjIyBUaGUgRWNvbm9teQpgYGB7cn0KbWV4aWNvX2NsZWFuICU+JSAKICBmaWx0ZXIoY2F0ZWdvcnlfZW4gPT0gIk1pZ3JhdGlvbiIpICU+JSAKICB0YWJ5bChxdWVzdGlvbl9lcykKYGBgCgojIyMgVW5pdGVkIFN0YXRlcwojIyMjIE1pZ3JhdGlvbgpUaGlzIHF1ZXN0aW9uIGlzIG9ubHkgYXNrZWQgb25jZSBhY3Jvc3MgYWxsIHRoZSBkYXRhLCBidXQgSSB3b25kZXIgaWYgdGhpcyBpcyBiZWNhdXNlIEkgb25seSBoYXZlIHRoZSBxdWVzdGlvbnMgaW4gU3BhbmlzaC4uLgpgYGB7cn0KdXNhX2NsZWFuICU+JSAKICBmaWx0ZXIoY2F0ZWdvcnlfZW4gPT0gIk1pZ3JhdGlvbiIpICU+JSAKICB0YWJ5bChxdWVzdGlvbl9lcykKYGBgCgojIyMjIENpdmljIGFuZCBQb2xpdGljYWwgRW5nYWdlbWVudAojIyMjIENsaW1hdGUgQ2hhbmdlL0Rpc2FzdGVyIFJpc2sgUmVkdWN0aW9uIElzc3VlcwojIyMjIENvcnJ1cHRpb24KIyMjIyBDcmltZSwgSW5zZWN1cml0eSwgYW5kIFBvbGljeSBQcmVmZXJlbmNlcwojIyMjIEV2YWx1YXRpb24gb2YgSW5zdGl0dXRpb25zLCBQb2xpdGljYWwgU3lzdGVtcyBhbmQgb3RoZXIgUGVyc29ucwojIyMjIEZvcmVpZ24gUmVsYXRpb25zCiMjIyMgUG9saXRpY2FsIGFuZCBSZWxpZ2lvdXMgT3JpZW50YXRpb24KIyMjIyBQb2xpdGljYWwgVG9sZXJhbmNlCiMjIyMgUG9saXRpY2FsL0VsZWN0b3JhbCBFbmdhZ2VtZW50CiMjIyMgU29jaW8tRGVtb2dyYXBoaWMgQ2hhcmFjdGVyaXN0aWNzCiMjIyMgU3VwcG9ydCBmb3IgRGVtb2NyYWN5IGFuZCBEZW1vY3JhdGljIEluc3RpdHV0aW9ucwojIyMjIFRoZSBFY29ub215</div>
 
 
 

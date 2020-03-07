@@ -42,5 +42,131 @@ It looks like the possible pertinent categories are
   + Socio-Demographic Characteristics
   + Support for Democracy and Democratic Institutions
   + The Economy
-  
+
+## Exploring questions by category and country
 In order to narrow down the content, I'm going to look at the questions in each of these categories.
+
+### Mexico
+#### Migration
+```{r}
+mexico_clean %>% 
+  filter(category_en == "Migration") %>% 
+  tabyl(question_es)
+```
+
+#### Civic and Political Engagement
+```{r}
+mexico_clean %>% 
+  filter(category_en == "Migration") %>% 
+  tabyl(question_es)
+```
+
+
+#### Climate Change/Disaster Risk Reduction Issues
+```{r}
+mexico_clean %>% 
+  filter(category_en == "Migration") %>% 
+  tabyl(question_es)
+```
+
+
+#### Corruption
+```{r}
+mexico_clean %>% 
+  filter(category_en == "Migration") %>% 
+  tabyl(question_es)
+```
+
+
+#### Crime, Insecurity, and Policy Preferences
+```{r}
+mexico_clean %>% 
+  filter(category_en == "Migration") %>% 
+  tabyl(question_es)
+```
+
+
+#### Evaluation of Institutions, Political Systems and other Persons
+```{r}
+mexico_clean %>% 
+  filter(category_en == "Migration") %>% 
+  tabyl(question_es)
+```
+
+
+#### Foreign Relations
+```{r}
+mexico_clean %>% 
+  filter(category_en == "Migration") %>% 
+  tabyl(question_es)
+```
+
+
+#### Political and Religious Orientation
+```{r}
+mexico_clean %>% 
+  filter(category_en == "Migration") %>% 
+  tabyl(question_es)
+```
+
+
+#### Political Tolerance
+```{r}
+mexico_clean %>% 
+  filter(category_en == "Migration") %>% 
+  tabyl(question_es)
+```
+
+
+#### Political/Electoral Engagement
+```{r}
+mexico_clean %>% 
+  filter(category_en == "Migration") %>% 
+  tabyl(question_es)
+```
+
+
+#### Socio-Demographic Characteristics
+```{r}
+mexico_clean %>% 
+  filter(category_en == "Migration") %>% 
+  tabyl(question_es)
+```
+
+
+#### Support for Democracy and Democratic Institutions
+```{r}
+mexico_clean %>% 
+  filter(category_en == "Migration") %>% 
+  tabyl(question_es)
+```
+
+
+#### The Economy
+```{r}
+mexico_clean %>% 
+  filter(category_en == "Migration") %>% 
+  tabyl(question_es)
+```
+
+### United States
+#### Migration
+This question is only asked once across all the data, but I wonder if this is because I only have the questions in Spanish...
+```{r}
+usa_clean %>% 
+  filter(category_en == "Migration") %>% 
+  tabyl(question_es)
+```
+
+#### Civic and Political Engagement
+#### Climate Change/Disaster Risk Reduction Issues
+#### Corruption
+#### Crime, Insecurity, and Policy Preferences
+#### Evaluation of Institutions, Political Systems and other Persons
+#### Foreign Relations
+#### Political and Religious Orientation
+#### Political Tolerance
+#### Political/Electoral Engagement
+#### Socio-Demographic Characteristics
+#### Support for Democracy and Democratic Institutions
+#### The Economy
