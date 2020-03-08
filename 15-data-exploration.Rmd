@@ -48,14 +48,18 @@ In order to narrow down the content, I'm going to look at the questions in each 
 
 ### Mexico
 #### Migration
+This would be definitely be necessary to analyze further. Asks about intentions of living or working abroad and remittances.
 ```{r}
+# Overall questions in category
 mexico_clean %>% 
   filter(category_en == "Migration") %>% 
   tabyl(question_es)
 ```
 
 #### Civic and Political Engagement
+These only apply to political engagement in Mexico. I don't think that this would be super relevant to what I'm looking for.
 ```{r}
+# Overall questions in category
 mexico_clean %>% 
   filter(category_en == "Civic and Political Engagement") %>% 
   tabyl(question_es)
@@ -63,14 +67,23 @@ mexico_clean %>%
 
 
 #### Climate Change/Disaster Risk Reduction Issues
+I think here it could be interesting to see if people who are more at risk to natural disasters are more likely to immigrate.
 ```{r}
+# Overall questions in category
 mexico_clean %>% 
   filter(category_en == "Climate Change/Disaster Risk Reduction Issues") %>% 
   tabyl(question_es)
+
+# Most relevant question
+mexico_clean %>% 
+  filter(question_es == "Probabilidad de muerte o daño en desastres naturales")
 ```
 
 
 #### Corruption
+This could be good for comparing how the citizens perceive their own goverments. I think that maybe higher perceived corruption could lead to an individual being more willing to emigrate.
+
+I could clump all of the questions regarding bribes into one category and the other can be the perception of corruption.
 ```{r}
 mexico_clean %>% 
   filter(category_en == "Corruption") %>% 
@@ -79,6 +92,7 @@ mexico_clean %>%
 
 
 #### Crime, Insecurity, and Policy Preferences
+This should definitely be incorporated as well. In terms of comparison, the perception of retribution in the justice system could be compared between countries. Peception of danger within the neighborhood might be a bit too broad for comparison. However, it could be valuable to look at if the victims of crimes who have little faith in the judicial system are the ones leaving.
 ```{r}
 mexico_clean %>% 
   filter(category_en == "Crime, Insecurity, and Policy Preferences") %>% 
@@ -87,14 +101,22 @@ mexico_clean %>%
 
 
 #### Evaluation of Institutions, Political Systems and other Persons
+I feel like I could leave out questions about trust in the govermnet because it can be included in the perception of corruption. However, it may be worthwhile to keep the question about basic rights being protected and political freedom.
 ```{r}
 mexico_clean %>% 
   filter(category_en == "Evaluation of Institutions, Political Systems and other Persons") %>% 
   tabyl(question_es)
+
+mexico_clean %>% 
+  filter(question_es == "Los derechos básicos están protegidos") 
+
+mexico_clean %>% 
+  filter(question_es == "Nivel actual de libertad para expresar opiniones políticas sin temor")
 ```
 
 
 #### Foreign Relations
+The question about the trustworthiness of the US government **may** or may not be useful. Probably not too relevant though.
 ```{r}
 mexico_clean %>% 
   filter(category_en == "Foreign Relations") %>% 
@@ -103,6 +125,7 @@ mexico_clean %>%
 
 
 #### Political and Religious Orientation
+I don't really think this is as important for Mexico, but I can see that this would be interesting for comparing how citizens in the US that identify with both ends of the political spectrum feel about migration into the US.
 ```{r}
 mexico_clean %>% 
   filter(category_en == "Political and Religious Orientation") %>% 
@@ -111,6 +134,7 @@ mexico_clean %>%
 
 
 #### Political Tolerance
+I don't think any of these have anything directly to do with immigration.
 ```{r}
 mexico_clean %>% 
   filter(category_en == "Political Tolerance") %>% 
@@ -119,6 +143,7 @@ mexico_clean %>%
 
 
 #### Political/Electoral Engagement
+Apparently there are no rows in this one?? Will have to come back to this.
 ```{r}
 mexico_clean %>% 
   filter(category_en == "Political/Electoral Engagement") %>% 
@@ -127,6 +152,7 @@ mexico_clean %>%
 
 
 #### Socio-Demographic Characteristics
+This will *definitely* be important for describing who are the people that are immigrating!!
 ```{r}
 mexico_clean %>% 
   filter(category_en == "Socio-Demographic Characteristics") %>% 
@@ -135,6 +161,7 @@ mexico_clean %>%
 
 
 #### Support for Democracy and Democratic Institutions
+This one isn't super relevant.
 ```{r}
 mexico_clean %>% 
   filter(category_en == "Support for Democracy and Democratic Institutions") %>% 
@@ -143,6 +170,7 @@ mexico_clean %>%
 
 
 #### The Economy
+This would be good for examining personal financial status.
 ```{r}
 mexico_clean %>% 
   filter(category_en == "The Economy") %>% 
