@@ -57,7 +57,7 @@ mexico_clean %>%
 #### Civic and Political Engagement
 ```{r}
 mexico_clean %>% 
-  filter(category_en == "Migration") %>% 
+  filter(category_en == "Civic and Political Engagement") %>% 
   tabyl(question_es)
 ```
 
@@ -65,7 +65,7 @@ mexico_clean %>%
 #### Climate Change/Disaster Risk Reduction Issues
 ```{r}
 mexico_clean %>% 
-  filter(category_en == "Migration") %>% 
+  filter(category_en == "Climate Change/Disaster Risk Reduction Issues") %>% 
   tabyl(question_es)
 ```
 
@@ -73,7 +73,7 @@ mexico_clean %>%
 #### Corruption
 ```{r}
 mexico_clean %>% 
-  filter(category_en == "Migration") %>% 
+  filter(category_en == "Corruption") %>% 
   tabyl(question_es)
 ```
 
@@ -81,7 +81,7 @@ mexico_clean %>%
 #### Crime, Insecurity, and Policy Preferences
 ```{r}
 mexico_clean %>% 
-  filter(category_en == "Migration") %>% 
+  filter(category_en == "Crime, Insecurity, and Policy Preferences") %>% 
   tabyl(question_es)
 ```
 
@@ -89,7 +89,7 @@ mexico_clean %>%
 #### Evaluation of Institutions, Political Systems and other Persons
 ```{r}
 mexico_clean %>% 
-  filter(category_en == "Migration") %>% 
+  filter(category_en == "Evaluation of Institutions, Political Systems and other Persons") %>% 
   tabyl(question_es)
 ```
 
@@ -97,7 +97,7 @@ mexico_clean %>%
 #### Foreign Relations
 ```{r}
 mexico_clean %>% 
-  filter(category_en == "Migration") %>% 
+  filter(category_en == "Foreign Relations") %>% 
   tabyl(question_es)
 ```
 
@@ -105,7 +105,7 @@ mexico_clean %>%
 #### Political and Religious Orientation
 ```{r}
 mexico_clean %>% 
-  filter(category_en == "Migration") %>% 
+  filter(category_en == "Political and Religious Orientation") %>% 
   tabyl(question_es)
 ```
 
@@ -113,7 +113,7 @@ mexico_clean %>%
 #### Political Tolerance
 ```{r}
 mexico_clean %>% 
-  filter(category_en == "Migration") %>% 
+  filter(category_en == "Political Tolerance") %>% 
   tabyl(question_es)
 ```
 
@@ -121,7 +121,7 @@ mexico_clean %>%
 #### Political/Electoral Engagement
 ```{r}
 mexico_clean %>% 
-  filter(category_en == "Migration") %>% 
+  filter(category_en == "Political/Electoral Engagement") %>% 
   tabyl(question_es)
 ```
 
@@ -129,7 +129,7 @@ mexico_clean %>%
 #### Socio-Demographic Characteristics
 ```{r}
 mexico_clean %>% 
-  filter(category_en == "Migration") %>% 
+  filter(category_en == "Socio-Demographic Characteristics") %>% 
   tabyl(question_es)
 ```
 
@@ -137,7 +137,7 @@ mexico_clean %>%
 #### Support for Democracy and Democratic Institutions
 ```{r}
 mexico_clean %>% 
-  filter(category_en == "Migration") %>% 
+  filter(category_en == "Support for Democracy and Democratic Institutions") %>% 
   tabyl(question_es)
 ```
 
@@ -145,7 +145,7 @@ mexico_clean %>%
 #### The Economy
 ```{r}
 mexico_clean %>% 
-  filter(category_en == "Migration") %>% 
+  filter(category_en == "The Economy") %>% 
   tabyl(question_es)
 ```
 
