@@ -177,6 +177,22 @@ mexico_clean %>%
   tabyl(question_es)
 ```
 
+### What to keep from Mexico
+The categories to dig deeper into in Mexico are:
+  + Migration
+  + Climate Change/Disaster Risk Reduction Issues
+  + Corruption
+  + Crime, Insecurity, and Policy Preferences
+  + Evaluation of Institutions, Political Systems and other Persons
+  + Foreign Relations
+  + Political and Religious Orientation
+  + Political Tolerance
+  + Political/Electoral Engagement
+  + Socio-Demographic Characteristics
+  + Support for Democracy and Democratic Institutions
+  + The Economy
+
+
 ### United States
 #### Migration
 This question is only asked once across all the data, but I wonder if this is because I only have the questions in Spanish...
@@ -187,14 +203,98 @@ usa_clean %>%
 ```
 
 #### Civic and Political Engagement
+I don't think any of these are particularly informative for this topic.
+```{r}
+usa_clean %>% 
+  filter(category_en == "Civic and Political Engagement") %>% 
+  tabyl(question_es)
+```
+
 #### Climate Change/Disaster Risk Reduction Issues
+I'd say the last two mayyyy be helpful, but I think it's more important to examine that from the Mexican side.
+```{r}
+usa_clean %>% 
+  filter(category_en == "Climate Change/Disaster Risk Reduction Issues") %>% 
+  tabyl(question_es)
+```
+
 #### Corruption
+I don't think this is necessary when examining from the US perspective.
+```{r}
+usa_clean %>% 
+  filter(category_en == "Corruption") %>% 
+  tabyl(question_es)
+```
+
 #### Crime, Insecurity, and Policy Preferences
+These could be relevant for seeing if people who think immigrants are criminals have actually been victims of a crime.
+```{r}
+usa_clean %>% 
+  filter(category_en == "Crime, Insecurity, and Policy Preferences") %>% 
+  tabyl(question_es)
+```
+
 #### Evaluation of Institutions, Political Systems and other Persons
+```{r}
+usa_clean %>% 
+  filter(category_en == "Evaluation of Institutions, Political Systems and other Persons") %>% 
+  tabyl(question_es)
+```
+
 #### Foreign Relations
+This has nothing to do with US-Mex relations.
+```{r}
+usa_clean %>% 
+  filter(category_en == "Foreign Relations") %>% 
+  tabyl(question_es)
+```
+
 #### Political and Religious Orientation
+This would be important to see how side of the political spectrum feels about immigration
+```{r}
+usa_clean %>% 
+  filter(category_en == "Political and Religious Orientation") %>% 
+  tabyl(question_es)
+```
+
 #### Political Tolerance
+Not relevant.
+```{r}
+usa_clean %>% 
+  filter(category_en == "Political Tolerance") %>% 
+  tabyl(question_es)
+```
+
 #### Political/Electoral Engagement
+This is empty for some reason.
+```{r}
+usa_clean %>% 
+  filter(category_en == "Political/Electoral Engagement") %>% 
+  tabyl(question_es)
+```
+
 #### Socio-Demographic Characteristics
+This would be important for seeing: if they are on welfare; age; ethnicity; and sex.
+```{r}
+usa_clean %>% 
+  filter(category_en == "Socio-Demographic Characteristics") %>% 
+  tabyl(question_es)
+```
+
 #### Support for Democracy and Democratic Institutions
+Not necessary for US analysis.
+```{r}
+usa_clean %>% 
+  filter(category_en == "Support for Democracy and Democratic Institutions") %>% 
+  tabyl(question_es)
+```
+
 #### The Economy
+It would be interesting to view their thoughts on the economic situation of the country.
+```{r}
+usa_clean %>% 
+  filter(category_en == "The Economy") %>% 
+  tabyl(question_es)
+```
+
+### What to keep from the US
