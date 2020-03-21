@@ -107,6 +107,7 @@ mexico_clean %>%
   filter(category_en == "Evaluation of Institutions, Political Systems and other Persons") %>% 
   tabyl(question_es)
 
+# Keep these questions
 mexico_clean %>% 
   filter(question_es == "Los derechos básicos están protegidos") 
 
@@ -184,13 +185,22 @@ The categories to dig deeper into in Mexico are:
   + Corruption
   + Crime, Insecurity, and Policy Preferences
   + Evaluation of Institutions, Political Systems and other Persons
-  + Foreign Relations
-  + Political and Religious Orientation
-  + Political Tolerance
-  + Political/Electoral Engagement
   + Socio-Demographic Characteristics
   + Support for Democracy and Democratic Institutions
   + The Economy
+  
+### Removing unnecessary categories
+I'm going to update mexico_clean so that it only contains the categories above.
+```{r}
+mexico_clean <- mexico_clean %>% 
+  filter(category_en != "Civic and Politial Engagement") %>% 
+  filter(category_en != "Foreign Relations") %>% 
+  filter(category_en != "Political and Religious Orientation") %>% 
+  filter(category_en != "Political Tolerance") %>% 
+  filter(category_en != "Political/Electoral Engagement") %>% 
+  filter(category_en != "Support for Democracy and Democratic Institutions")
+```
+
 
 
 ### United States
@@ -232,9 +242,19 @@ These could be relevant for seeing if people who think immigrants are criminals 
 usa_clean %>% 
   filter(category_en == "Crime, Insecurity, and Policy Preferences") %>% 
   tabyl(question_es)
+
+usa_clean %>% 
+  filter(question_es == "Percepción de inseguridad en el barrio")
+
+usa_clean %>% 
+  filter(question_es == "Víctima de delincuencia en los últimos 12 meses")
+
+usa_clean %>% 
+  filter(question_es == "Víctima de delincuencia en los últimos 12 meses (Frecuencia)")
 ```
 
 #### Evaluation of Institutions, Political Systems and other Persons
+I don't think this counts much for immigration between Mex and US.
 ```{r}
 usa_clean %>% 
   filter(category_en == "Evaluation of Institutions, Political Systems and other Persons") %>% 
@@ -279,6 +299,31 @@ This would be important for seeing: if they are on welfare; age; ethnicity; and 
 usa_clean %>% 
   filter(category_en == "Socio-Demographic Characteristics") %>% 
   tabyl(question_es)
+
+# Possible questions to focus on
+usa_clean %>% 
+  filter(question_es == "Beneficiario en el hogar del programa de transferencias de dinero condicionadas")
+
+usa_clean %>% 
+  filter(question_es == "Edad")
+
+usa_clean %>% 
+  filter(question_es == "Estado civil")
+
+usa_clean %>% 
+  filter(question_es == "Etnicidad")
+
+usa_clean %>% 
+  filter(question_es == "Ingreso mensual del hogar")
+
+usa_clean %>% 
+  filter(question_es == "Ocupación")
+
+usa_clean %>% 
+  filter(question_es == "Sexo")
+
+usa_clean %>% 
+  filter(question_es == "Situación laboral")
 ```
 
 #### Support for Democracy and Democratic Institutions
@@ -295,6 +340,33 @@ It would be interesting to view their thoughts on the economic situation of the 
 usa_clean %>% 
   filter(category_en == "The Economy") %>% 
   tabyl(question_es)
+
+# Questions to keep
+usa_clean %>% 
+  filter(question_es == "Evaluación de la situación económica del país")
+
+usa_clean %>% 
+  filter(question_es == "Ingreso del hogar en los últimos dos años")
+
+usa_clean %>% 
+  filter(question_es == "Percepción de situación económica personal")
 ```
 
 ### What to keep from the US
+  + Crime, Insecurity, and Policy Preferences
+  + Political and Religious Orientation
+  + Socio-Demographic Characteristics
+  + The Economy
+  
+### Keeping relevant topics
+First I'm going to make these into a list, and then I'm going to filter usa_clean based on if question_es is in the list
+```{r}
+cats_to_use <- c("Crime, Insecurity, and Policy Preferences", 
+                 "Political and Religious Orientation", 
+                 "Socio-Demographic Characteristics", 
+                 "The Economy")
+
+usa_clean <- usa_clean %>% 
+  filter(category_en %in% cats_to_use)
+```
+
